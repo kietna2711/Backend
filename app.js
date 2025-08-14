@@ -60,7 +60,8 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/users/auth/google/callback",
+      callbackURL:
+        "https://deploy-nodejs-vqqq.onrender.com/users/auth/google/callback",
     },
     async (_accessToken, _refreshToken, profile, done) => {
       let user = await User.findOne({ googleId: profile.id });
@@ -111,7 +112,7 @@ app.use("/vouchers", vouchersRouter);
 
 // không cần token khi thanh toán momo
 app.use("/payment", paymentRouter);
-// app.use("/", paymentReturnRouter); // Để route /payment-return hoạt động tại http://localhost:3000/payment-return
+// app.use("/", paymentReturnRouter); // Để route /payment-return hoạt động tại https://deploy-nodejs-vqqq.onrender.com/payment-return
 //
 app.use("/favorites", favoriteRouter);
 // thanh toán
