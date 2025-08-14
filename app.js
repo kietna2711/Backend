@@ -2,7 +2,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 mongoose
   .connect(
-    "mongodb+srv://root:123456789a@cluster0.uhpjlrs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    "mongodb+srv://dinhvantuong2192005:123456789a@cluster0.0pa9usg.mongodb.net/",
   )
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
