@@ -2,7 +2,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 mongoose
   .connect(
-    "mongodb+srv://dinhvantuong2192005:123456789a@cluster0.0pa9usg.mongodb.net/",
+    "mongodb+srv://dinhvantuong2192005:123456789a@cluster0.0pa9usg.mongodb.net/"
   )
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
@@ -61,7 +61,7 @@ passport.use(
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL:
-        "https://deploy-nodejs-vqqq.onrender.com/users/auth/google/callback",
+        "https://backend-nm2q.onrender.com/users/auth/google/callback",
     },
     async (_accessToken, _refreshToken, profile, done) => {
       let user = await User.findOne({ googleId: profile.id });
@@ -112,7 +112,7 @@ app.use("/vouchers", vouchersRouter);
 
 // không cần token khi thanh toán momo
 app.use("/payment", paymentRouter);
-// app.use("/", paymentReturnRouter); // Để route /payment-return hoạt động tại https://deploy-nodejs-vqqq.onrender.com/payment-return
+// app.use("/", paymentReturnRouter); // Để route /payment-return hoạt động tại https://backend-nm2q.onrender.com/payment-return
 //
 app.use("/favorites", favoriteRouter);
 // thanh toán
